@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>resizable demo</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <style>
+  #resizable {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+}	</style>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script src="js/Raphel.js"></script>
+
+</head>
+<body>
+ 
+<div id="resizable"></div>
+ 
+<script>
+var rsr = Raphael('resizable', '100', '100'); var rect_a = rsr.rect(12.5, 13.5, 76, 76); rect_a.attr({x: '12.5',y: '13.5',fill: '#E6E6E6',stroke: '#FF931E',"stroke-miterlimit": '10','stroke-width': '0','stroke-opacity': '1'}).data('id', 'rect_a'); var rsrGroups = [];
+$( "#resizable" ).resizable();
+$( "#resizable" ).on( "resize", function( event, ui ) {
+	
+	
+	} );
+myDropzone.on("maxfilesexceeded", function(file)
+{
+    this.removeFile(file);
+});
+</script>
+ 
+</body>
+</html>

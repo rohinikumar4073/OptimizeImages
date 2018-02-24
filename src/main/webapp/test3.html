@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Movable and Re-sizable Raphael JS Shape</title>
+    <link href="css/dropzone2.css" rel="stylesheet" type="text/css" />
+
+</head>
+ 
+<body>
+ 
+<script type="text/javascript" src="js/Raphel.js"></script>
+<script type="text/javascript" src="js/raphael.free_transform.js">
+</script>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js">
+</script>
+<script src="js/dropzone2.js"></script>
+
+
+
+<form action="upload"
+      class="toBeUploaded"
+      id="my-awesome-dropzone">
+
+      <div id="holder" style="height: 100%;">
+</div>
+      </form>
+<script type="text/javascript">
+  
+$(".toBeUploaded").dropzone({
+    maxFiles: 1,
+	
+    maxfilesexceeded: function(file) {
+        this.removeAllFiles();
+        this.addFile(file);
+    }
+})
+</script> 
+</body>
+</html>
