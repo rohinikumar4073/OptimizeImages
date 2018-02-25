@@ -26,9 +26,7 @@ public class UploadImage
        
 	    	// Create a factory for disk-based file items
 	    	DiskFileItemFactory factory = new DiskFileItemFactory();
-	    	//String sessionid=request.getParameter("uniqueid");
-	    	// Configure a repository (to ensure a secure temp location is used)
-	   
+	    
 
 	    	// Create a new file upload handler
 	    	ServletFileUpload upload = new ServletFileUpload(factory);

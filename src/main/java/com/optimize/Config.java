@@ -14,7 +14,7 @@ static {
 	}
 
 }
-public static String databaseUrl="jdbc:mysql://us-cdbr-iron-east-05.cleardb.net/heroku_b71e4549731517b";
+public static String databaseUrl="jdbc:mysql://us-cdbr-iron-east-05.cleardb.net";
 public static String userName="be22c0d42b69d9";
 public static String passWord="1719164f";
 public static String fileLocation=temp.getAbsolutePath();
