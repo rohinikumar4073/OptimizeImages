@@ -6,9 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.Map.Entry;
 
 import com.optimize.Config;
 import com.optimize.Beans.Devices;
@@ -21,10 +18,7 @@ public class OptimizeDataManger {
 public void saveData(ImageArray data){
 	   try{
 		    Class.forName("com.mysql.jdbc.Driver");
-		    
-			
 			Connection con = DriverManager.getConnection(Config.databaseUrl,Config.userName,Config.passWord);
-
 			PreparedStatement psmnt = con.prepareStatement
 					("INSERT INTO heroku_b71e4549731517b.imagesforsprites"
 							+ "(sessionId,height,width,imageName)VALUES(?,?,?,?)");
@@ -104,6 +98,29 @@ public HashMap<String, ArrayList<Devices>> getDeviceList(){
 		}
 	return platfromMap;
 
+}
+public void deleteData(ImageArray data) {
+	 try{
+		 
+		    Class.forName("com.mysql.jdbc.Driver");
+		    
+			
+			Connection con = DriverManager.getConnection(Config.databaseUrl,Config.userName,Config.passWord);
+			PreparedStatement psmnt = con.prepareStatement("Delete from "
+					+ "heroku_b71e4549731517b.imagesforsprites where imageName='"+data.getImageName()+"' AND sessionId='"+data.getImageId()+"'");
+
+		
+		
+		
+
+			boolean s = psmnt.execute();
+		
+			//Close the Statement & connection
+			psmnt.close();
+			con.close();
+			} catch (Exception e) {
+			System.out.println("Error Connecting : "+e.getMessage());
+		}
 }
 
 }
