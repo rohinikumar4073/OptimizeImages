@@ -19,6 +19,8 @@
 </div>
 
 <script>
+$("#tab1").attr('class', 'selected');
+
 var pathname = window.location.pathname;
 if(pathname.indexOf("MobileImageConvertor.jsp")!=-1){
 	$(".selected").removeClass("selected")
