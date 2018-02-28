@@ -4,12 +4,15 @@ import com.optimize.DownloadImage;
 import com.optimize.DownloadImages;
 import com.optimize.UploadImage;
 import com.optimize.database.OptimizeDataManger;
+import com.optimize.mobileimagecovertor.Resize;
 
 public class OptimizerController {
 private OptimizeDataManger optimizeDataManager;
 private DownloadImage downloadImage;
 private DownloadImages downloadImages;
 private UploadImage uploadImages;
+private Resize resize;
+
 public void setOptimizeDataManager(OptimizeDataManger optimizeDataManager) {
 	this.optimizeDataManager = optimizeDataManager;
 }
@@ -45,6 +48,15 @@ public UploadImage getUploadImages() {
 		return new UploadImage();
 	}
 	return uploadImages;
+}
+public void setResize(Resize resize) {
+	this.resize = resize;
+}
+public Resize getResize() {
+	if(this.resize==null){
+		return new Resize();
+	}
+	return resize;
 }
 
  

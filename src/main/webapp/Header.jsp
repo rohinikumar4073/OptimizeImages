@@ -41,7 +41,7 @@ $(document).ready(function(e) {
 		
 		});
 	$("#tab1").click(function(e){
-       window.location.href="./";
+       window.location.href="./HomePage.jsp";
 		});
 	$("#tab2").click(function(e){
 	       window.location.href="./UnderConstruction.jsp";

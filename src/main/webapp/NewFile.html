@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+    <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
+    <script src="js/ZeroClipboard.js"></script>
+    <script>
+    var client = new ZeroClipboard( document.getElementById("copy-button") );
+
+    client.on( "ready", function( readyEvent ) {
+      // alert( "ZeroClipboard SWF is ready!" );
+
+      client.on( "aftercopy", function( event ) {
+        // `this` === `client`
+        // `event.target` === the element that was clicked
+        event.target.style.display = "none";
+        alert("Copied text to clipboard: " + event.data["text/plain"] );
+      } );
+    } );
+    
+    </script>
+
+</body>
+</html>

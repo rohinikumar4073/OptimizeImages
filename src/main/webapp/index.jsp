@@ -36,10 +36,24 @@
 <script>
 
 $("#submitbutton").click(function(e){
+	if($('#submitbutton').css('cursor')!= "pointer"){
+		return;
+	}
+	
 	var temp=$("#uniqueid").val();
 	  window.location.href="./SpriteSuccess.jsp?"+"temp="+temp;
 	
 	});
+var myDropzone = new Dropzone(".dropzone");
+myDropzone.on("complete", function(file) {
+	$('#submitbutton').css('background-image', 'url(./img/orangebutton.png)');
+	$('#submitbutton').css('cursor', 'pointer');
+	  document.getElementById("dandd").style.display="none";
+	 
+
+
+
+});
 
 </script>
 </body>

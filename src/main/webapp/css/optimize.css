@@ -154,10 +154,11 @@ display:block;
 	padding-left: 25px;
 	padding-top: 8px;
 	background-repeat: no-repeat;
-;
+cursor:pointer;
 	margin-top: 21px;
 	font-size: 18px;
 		color: #fff;
+	
 }
 .ornagebutton {
 	background-image: url(../img/orangebutton.png);
@@ -241,7 +242,6 @@ display:block;
 border: 01px solid #CCC;
 padding-left: 10px;
 display: block;
-float: left;
 width: 360px;
 height: 36px;
 font-family: "Myriad Pro", Helvetica, sans;

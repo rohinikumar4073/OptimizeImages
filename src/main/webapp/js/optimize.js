@@ -11,9 +11,17 @@ function addSVG(width2,height2,x1,y1){
 	
 	
 	  var paper = Raphael(x1, y1, parseInt(width2)+5, parseInt(height2)+5);
+	  tempwidth=parseInt(width2);
+	  tempheight=parseInt(height2);
+if( tempwidth>20){
+	tempwidth=tempwidth-10;
 
+}if( tempheight>10){
+	tempheight=tempheight-10;
+
+}
 	    var rect = paper
-	        .rect(0, 0, parseInt(width2), parseInt(height2))
+	        .rect(5, 5, tempwidth,tempheight)
 	        .attr('fill', '#E6E6E6')
 			.attr('fill-opacity', '0.5')
 	        ;
@@ -45,3 +53,20 @@ function addSVG(width2,height2,x1,y1){
 	
 	
 }
+
+
+function remove(rem){
+  var fileName=	$(rem).siblings(".dz-details").children(".dz-filename").children("span").html();
+  var temp=$("#uniqueid1").val();
+  $.ajax({
+	  url: "./remove?fileName="+fileName+"&temp="+temp
+	})
+	  .done(function( data ) {
+	    if ( console && console.log ) {
+	      console.log( "Sample of data:", data.slice( 0, 100 ) );
+	    }
+	  });
+
+	
+	
+	}

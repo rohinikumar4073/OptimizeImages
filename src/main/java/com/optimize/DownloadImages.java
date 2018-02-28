@@ -24,6 +24,7 @@ import com.optimize.spritegenerator.ImageOutput;
 
 public class DownloadImages 
  implements ImageObserver{
+	   private StringBuilder spriteData;
 	   private BufferedImage img;
 	   private String imageId; 
 	   private OptimizeDataManger optimizeDataManger; 
@@ -87,7 +88,7 @@ public class DownloadImages
 			//	BufferedImage img = ImageIO.read(inputImage.getFile());
 	        	imageOutput.placeTheImage(inputImage);
 			}
-			
+			this.spriteData=new StringBuilder();
 			
             BufferedImage bufferedImage=new BufferedImage(imageOutput.getImageWidth(), imageOutput.getImageHeight(),BufferedImage.TYPE_INT_ARGB );
         	for (Iterator iterator = imageOutput.getImageArrayList().iterator(); iterator.hasNext();) {
@@ -96,11 +97,19 @@ public class DownloadImages
 				img = ImageIO.read(new File(Config.fileLocation+inputImage.getImageName()));
 	            int height=(int) (inputImage.getPositon().getyPosition()-inputImage.getHeight()/2);
 	            int width=(int) (inputImage.getPositon().getxPosition()-inputImage.getWidth()/2);
-	           bufferedImage.createGraphics().drawImage(img,width,height,this);	          	
+	           bufferedImage.createGraphics().drawImage(img,width,height,this);	         
+	          
 	           ImageIO.write(bufferedImage, "png", outputfile);	         	
+	           
+	           spriteData.append("#"+inputImage.getImageName()+"{"+"width:"+inputImage.getWidth()+";"+
+	        		   "height:"+inputImage.getHeight()+";"+
+	        		   "background:'url("+ outputfile.getName()+")' -"+inputImage.getLeft()+"px -"+inputImage.getTop()+"px;"	        		   
+	        		   
+	        		   +"}")
+	        		   ;
+				spriteData.append("\n");
 
 			}
-			
 		}
 
 		@Override
@@ -108,6 +117,14 @@ public class DownloadImages
 				int arg4, int arg5) {
 			// TODO Auto-generated method stub
 			return false;
+		}
+
+		public StringBuilder getSpriteData() {
+			return spriteData;
+		}
+
+		public void setSpriteData(StringBuilder spriteData) {
+			this.spriteData = spriteData;
 		}
 	}
 

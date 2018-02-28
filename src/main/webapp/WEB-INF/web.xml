@@ -15,6 +15,14 @@
         <servlet-name>UploadImage</servlet-name>
         <servlet-class>com.optimize.UploadImage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DownloadImageZip</servlet-name>
+        <servlet-class>com.optimize.DownloadZipFiles</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>RemoveImages</servlet-name>
+        <servlet-class>com.optimize.RemoveImage</servlet-class>
+    </servlet>
  <servlet>
         <servlet-name>DownloadImages</servlet-name>
         <servlet-class>com.optimize.DownloadImage</servlet-class>
@@ -26,5 +34,13 @@
         <servlet-mapping>
         <servlet-name>DownloadImages</servlet-name>
         <url-pattern>/download</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>RemoveImages</servlet-name>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>DownloadImageZip</servlet-name>
+        <url-pattern>/downloadImagesZip</url-pattern>
     </servlet-mapping>
 </web-app>

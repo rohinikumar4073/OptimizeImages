@@ -22,16 +22,8 @@ public void saveData(ImageArray data){
 	   try{
 		    Class.forName("com.mysql.jdbc.Driver");
 		    
-			//Connecting to MYSQL Database
-			//SQL Database name is java
-			//SQL server is localhost, username:root, password:nopassword 
+			
 			Connection con = DriverManager.getConnection(Config.databaseUrl,Config.userName,Config.passWord);
-
-			//Using the Connection Object now Create a Statement
-
-
-			//Save The Data Into the Database Table
-			//Any String Typed Instead of data1, data2 will be saved to the database.
 
 			PreparedStatement psmnt = con.prepareStatement
 					("INSERT INTO heroku_b71e4549731517b.imagesforsprites"
@@ -84,7 +76,8 @@ public HashMap<String, ArrayList<Devices>> getDeviceList(){
 		    Class.forName("com.mysql.jdbc.Driver");
 		    
 			Connection con = DriverManager.getConnection(Config.databaseUrl,Config.userName,Config.passWord);
-			PreparedStatement psmnt = con.prepareStatement("Select p.platform_name,m.device_name,m.width,m.height from optimize.mobile_devices m,optimize.mobile_platforms p where p.idmobile_platforms = m.platform");
+			PreparedStatement psmnt = con.prepareStatement("Select p.platform_name,m.device_name,m.width,m.height from heroku_b71e4549731517b.mobile_devices m,"
+					+ "heroku_b71e4549731517b.mobile_platforms p where p.idmobile_platforms = m.platform");
 			boolean s = psmnt.execute();
 			ResultSet resultSet=psmnt.getResultSet();
 			while(resultSet.next()){

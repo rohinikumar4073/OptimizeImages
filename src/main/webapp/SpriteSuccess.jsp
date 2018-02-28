@@ -15,6 +15,8 @@
 <script src="js/optimize.js"></script>
 <script src="js/dropzone.js"></script>
 <link href="css/dropzone.css" rel="stylesheet" type="text/css" />
+    <script src="js/ZeroClipboard.js"></script>
+
 </head>
 
 <body>
@@ -26,6 +28,7 @@
 
 	downloadImages.service(request, response,controller.getOptimizeDataManager());
 %>
+
 <div class="cordinatecontainer">
 <div class="coordinatecontainertitle">
 All your images are converted successfully into sprites. <br>
@@ -52,31 +55,45 @@ All your images are converted successfully into sprites. <br>
   <tr>
     <td class="tableodd"  ><%=temp %></td>
         <td class="tableodd"><%=inputImage.getImageName()%></td>
-            <td class="tableodd">top:<%=inputImage.getTop()%> ;left :<%=inputImage.getLeft()%> ; right <%=inputImage.getRight()%>; bottom :  <%=inputImage.getBottom()%></td>
+            <td class="tableodd">top:<%=inputImage.getTop()%> ;left :<%=inputImage.getLeft()%> ; width <%=String.valueOf( inputImage.getWidth())%>; height :  <%=String.valueOf( inputImage.getHeight())%></td>
   </tr>
   <%}else if(temp%2==0){ %>
   <tr>
     <td class="tableeven"><%=temp %></td>
         <td class="tableeven"><%=inputImage.getImageName()%></td>
-            <td class="tableeven">top:<%=inputImage.getTop()%> ;left :<%=inputImage.getLeft()%> ; right <%=inputImage.getRight()%>; bottom :  <%=inputImage.getBottom()%></td>
+            <td class="tableeven">top:<%=inputImage.getTop()%> ;left :<%=inputImage.getLeft()%> ; width <%=String.valueOf( inputImage.getWidth())%>; height :  <%=String.valueOf( inputImage.getHeight())%></td>
   </tr>
      <%
   }
  }
      %>
 </table>
-<div class="copycordinatesbutton" id="copycordinates" >Copy Cordinates </div>
+<div class="copycordinatesbutton" data-clipboard-text="<%=downloadImages.getSpriteData().toString()%>"id="copycordinates" >Copy Cordinates </div>
 </div>
 
 </div>
 </div>
+
 <%@include file="./Footer.jsp" %>
 
 <script>
+var client = new ZeroClipboard( document.getElementById("copycordinates") );
 
+client.on( "ready", function( readyEvent ) {
+  // alert( "ZeroClipboard SWF is ready!" );
+
+  client.on( "aftercopy", function( event ) {
+    // `this` === `client`
+    // `event.target` === the element that was clicked
+    event.target.style.display = "none";
+    alert("Copied text to clipboard: " + event.data["text/plain"] );
+  } );
+} );
 
 
 </script>
+
+
 </body>
 
 </html>

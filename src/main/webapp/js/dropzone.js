@@ -493,9 +493,13 @@ require.register("dropzone/lib/dropzone.js", function(exports, require, module){
           if (srcRatio > trgRatio) {
             info.srcHeight = file.height;
             info.srcWidth = info.srcHeight * trgRatio;
+			            info.srcWidth = file.width;
+
           } else {
             info.srcWidth = file.width;
             info.srcHeight = info.srcWidth / trgRatio;
+						            info.srcWidth = file.width;
+
           }
         }
         info.srcX = (file.width - info.srcWidth) / 2;
@@ -551,7 +555,7 @@ require.register("dropzone/lib/dropzone.js", function(exports, require, module){
           node.innerHTML = this.filesize(file.size);
         }
         if (this.options.addRemoveLinks) {
-          file._removeLink = Dropzone.createElement("<a class=\"dz-remove\" href=\"javascript:remove();\" data-dz-remove>" + this.options.dictRemoveFile + "</a>");
+          file._removeLink = Dropzone.createElement("<a class=\"dz-remove\" onclick=\"javascript:remove(this);\" data-dz-remove>" + this.options.dictRemoveFile + "</a>");
           file.previewElement.appendChild(file._removeLink);
         }
         removeFileEvent = function(e) {
@@ -1923,4 +1927,3 @@ if (typeof exports == "object") {
 } else {
   this["Dropzone"] = require("dropzone");
 }})();// JavaScript Document
-function remove(){alert("remove");}
