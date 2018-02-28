@@ -14,10 +14,7 @@
 <div class="tab-container">
 <div class="tabs">
  <span id="tab1" class="tab" style="padding-left:0px;"> Sprite Generator</span>
- <span id="tab2" class="tab"> Image Optimizer</span>
  <span id="tab3" class="tab"> Mobile Image Convertor</span>
- <span id="tab4" class="tab"> Contact Us</span>
- <span id="tab5" class="tab"> FAQ</span></div>
 </div>
 </div>
 
@@ -25,7 +22,7 @@
 var pathname = window.location.pathname;
 if(pathname=="/Optimize/MobileImageConvertor.jsp"){
 	$("#tab3").attr('class', 'selected');
-}else if(pathname=="/Optimize/HomePage.jsp"){
+}else if(pathname=="/Optimize/index.jsp"){
 	$("#tab1").attr('class', 'selected');
 
 	
@@ -41,7 +38,7 @@ $(document).ready(function(e) {
 		
 		});
 	$("#tab1").click(function(e){
-       window.location.href="./HomePage.jsp";
+       window.location.href="./index.jsp";
 		});
 	$("#tab2").click(function(e){
 	       window.location.href="./UnderConstruction.jsp";
