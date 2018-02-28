@@ -20,12 +20,9 @@
 
 <script>
 var pathname = window.location.pathname;
-if(pathname=="/Optimize/MobileImageConvertor.jsp"){
+if(pathname.indexOf("MobileImageConvertor.jsp")!=-1){
+	$(".selected").removeClass("selected")
 	$("#tab3").attr('class', 'selected');
-}else if(pathname=="/Optimize/index.jsp"){
-	$("#tab1").attr('class', 'selected');
-
-	
 }
 $(document).ready(function(e) {
     $(".tab").click(function(e){
